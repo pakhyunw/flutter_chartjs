@@ -1,0 +1,38 @@
+name: chartjs
+description: A chart library based on Chart (.JS), able to build advanced
+  charts like Pie chart, linear chart, etc.
+version: 0.0.1
+homepage: https://github.com/pakhyunw/flutter_chartjs
+
+environment:
+  sdk: '>=3.2.2 <4.0.0'
+  flutter: '>=3.3.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_web_plugins:
+    sdk: flutter
+  js: ^0.7.0
+  url_launcher: ^6.2.4
+  webview_flutter: ^4.5.0
+  webview_flutter_android: ^3.14.0
+  webview_flutter_wkwebview: ^3.10.2
+
+
+dev_dependencies:
+  flutter_lints: ^3.0.1
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: kr.m2cloud.chartjs
+        pluginClass: ChartJsPlugin
+      ios:
+        pluginClass: ChartJsPlugin
+      web:
+        pluginClass: ChartJsPlatformInterface
+        fileName: chartjs_web.dart
