@@ -104,8 +104,8 @@ class ChartJs extends StatefulWidget {
 }
 
 class ChartJsState extends State<ChartJs> {
-  final String _ChartJsId =
-      "ChartJsId${Random().nextInt(900000) + 100000}";
+  final String _chartJsId =
+      "chartJsId${Random().nextInt(900000) + 100000}";
 
   @override
   void didUpdateWidget(covariant ChartJs oldWidget) {
@@ -127,24 +127,24 @@ class ChartJsState extends State<ChartJs> {
   @override
   Widget build(BuildContext context) {
     // ignore: undefined_prefixed_name
-    ui.platformViewRegistry.registerViewFactory(_ChartJsId, (int viewId) {
+    ui.platformViewRegistry.registerViewFactory(_chartJsId, (int viewId) {
       final html.Element htmlElement = html.DivElement()
         ..style.width = '100%'
         ..style.height = '100%'
-        ..setAttribute("id", _ChartJsId);
+        ..setAttribute("id", _chartJsId);
       return htmlElement;
     });
 
     return SizedBox(
       height: widget.size.height,
       width: widget.size.width,
-      child: HtmlElementView(viewType: _ChartJsId),
+      child: HtmlElementView(viewType: _chartJsId),
     );
   }
 
   void _load() {
     Future.delayed(const Duration(milliseconds: 250), () {
-      eval("ChartJs.chart('$_ChartJsId',${widget.data});");
+      eval("new Chart('$_chartJsId',${widget.data});");
     });
   }
 }

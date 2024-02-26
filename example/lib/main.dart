@@ -23,65 +23,34 @@ class ExampleChart extends StatefulWidget {
 }
 
 class ExampleChartState extends State<ExampleChart> {
-  final String _chartData = '''{
-  type: "scatter",
+  final String _chartData = '''
+  {
+  type: "pie",
   data: {
+    labels: ["Italy", "France", "Spain", "USA", "Argentina"],
     datasets: [{
-      pointRadius: 4,
-      pointBackgroundColor: "rgb(0,0,255)",
-      data: xyValues
+      backgroundColor: [
+  "#b91d47",
+  "#00aba9",
+  "#2b5797",
+  "#e8c3b9",
+  "#1e7145"
+],
+      data: [55, 49, 44, 24, 15]
     }]
   },
-  options:{
-    scales: {
-        xAxes: [{ticks: {min: 40, max:160}}],
-        yAxes: [{ticks: {min: 6, max:16}}],
-      },
-  	plugins: {
-        legend: {
-          display: true,
-          labels: {
-            fontColor: 'rgb(0, 0, 0)',
-            fontStyle: 'Bold',
-          },
-          position: 'bottom',
-        },
-        zoom: {
-        zoom: {
-          wheel: {
-            enabled: true,
-          },
-          pinch: {
-            enabled: true
-          },
-          mode: 'xy',
-        }
-      },
-        annotation: {
-          annotations: {
-            line1: {
-              type: 'line',
-              yMin: 2,
-              yMax: 2,
-              borderColor: 'rgb(255, 99, 132)',
-              borderWidth: 2,
-            },
-            line2: {
-              type: 'line',
-              yMin: 8,
-              yMax: 8 ,
-              borderColor: 'rgb(255, 99, 132)',
-              borderWidth: 2,
-            },
-          },
-        },
-        },
-      }}''';
+  options: {
+    title: {
+      display: true,
+      text: "World Wide Wine Production 2018"
+    }
+  }
+}
+  ''';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.teal,
       appBar: AppBar(
         centerTitle: true,
         title: const Text('Chart Js Example App'),

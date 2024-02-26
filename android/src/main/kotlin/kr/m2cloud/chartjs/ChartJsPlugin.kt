@@ -1,4 +1,4 @@
-package me.senthilnasa.chartjs
+package kr.m2cloud.chartjs
 
 import androidx.annotation.NonNull
 

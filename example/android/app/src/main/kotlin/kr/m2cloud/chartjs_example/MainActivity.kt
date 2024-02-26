@@ -1,4 +1,4 @@
-package me.senthilnasa.chartjs_example
+package kr.m2cloud.chartjs_example
 
 import io.flutter.embedding.android.FlutterActivity
 

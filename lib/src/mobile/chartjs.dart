@@ -189,7 +189,15 @@ class ChartJsState extends State<ChartJs> {
   String _htmlContent() {
     String html = "";
     html +=
-        '<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/> </head> <body><div style="height:100%;width:100%;" id="ChartJsDiv"></div><script>function senthilnasa(a){ eval(a); return true;}</script>';
+        '<!DOCTYPE html>'
+            '<html>'
+            '<head>'
+            '<meta charset="utf-8">'
+            '<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/> '
+            '</head> '
+            '<body>'
+            '<canvas id="chartJs" style="width:100%;max-width:600px"></canvas>'
+            '<script>function chart(a){ eval(a); return true;}</script>';
     for (String src in widget.scripts) {
       html += '<script async="false" src="$src"></script>';
     }
@@ -204,7 +212,7 @@ class ChartJsState extends State<ChartJs> {
         _isLoaded = true;
       });
       _controller.runJavaScriptReturningResult(
-          "senthilnasa(`ChartJs.chart('ChartJsDiv',${widget.data} )`);");
+          "chart(`new Chart('chartJs', ${widget.data})`);");
     }
   }
 }
