@@ -213,7 +213,6 @@ class ChartJsState extends State<ChartJs> {
         _isLoaded = true;
       });
       var chartData = widget.data.replaceAll('"callback":"toFixed"', '"callback":function(value, index, values){return value.toFixed(0);}');
-      print(chartData);
       _controller.runJavaScriptReturningResult(
           "chart(`new Chart('chartJs', $chartData)`);");
     }
