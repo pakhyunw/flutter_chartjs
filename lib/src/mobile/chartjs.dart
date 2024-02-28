@@ -190,17 +190,18 @@ class ChartJsState extends State<ChartJs> {
     String html = "";
     html +=
         '<!DOCTYPE html>'
-            '<html>'
-            '<head>'
-            '<meta charset="utf-8">'
-            '<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/> '
-            '</head> '
-            '<body>'
-            '<canvas id="chartJs" style="width:100%;max-width:600px"></canvas>'
-            '<script>function chart(a){ eval(a); return true;}</script>';
+            '<html>';
     for (String src in widget.scripts) {
-      html += '<script async="false" src="$src"></script>';
+      html += '<script src="$src"></script>';
     }
+    html +=
+        '<head>'
+        '<meta charset="utf-8">'
+        '<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/> '
+        '</head> '
+        '<body>'
+        '<canvas id="chartJs" style="width:100%;max-width:600px"></canvas>'
+        '<script>function chart(a){ eval(a); return true;}</script>';
     html += '</body></html>';
 
     return html;
