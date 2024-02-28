@@ -140,7 +140,7 @@ class ChartJsState extends State<ChartJs> {
       ..setJavaScriptMode(JavaScriptMode.unrestricted)
       ..enableZoom(false)
       ..setBackgroundColor(Colors.transparent)
-      ..loadHtmlString(_htmlContent())
+      ..loadHtmlString(_htmlContent(widget.size.height))
       ..setNavigationDelegate(
         NavigationDelegate(onWebResourceError: (err) {
           debugPrint(err.toString());
@@ -165,7 +165,7 @@ class ChartJsState extends State<ChartJs> {
     if (oldWidget.data != widget.data ||
         oldWidget.size != widget.size ||
         oldWidget.scripts != widget.scripts) {
-      _controller.loadHtmlString(_htmlContent());
+      _controller.loadHtmlString(_htmlContent(widget.size.height));
     }
     super.didUpdateWidget(oldWidget);
   }
@@ -186,7 +186,7 @@ class ChartJsState extends State<ChartJs> {
     );
   }
 
-  String _htmlContent() {
+  String _htmlContent(height) {
     String html = "";
     html +=
         '<!DOCTYPE html>'
@@ -200,9 +200,9 @@ class ChartJsState extends State<ChartJs> {
         '<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/> '
         '</head> '
         '<body>'
-        '<canvas id="chartJs" style="width:100%;max-width:600px"></canvas>'
-        '<script>function chart(a){ eval(a); return true;}</script>';
-    html += '</body></html>';
+        '<canvas id="chartJs" style="width:100%;max-width:600px;height:${height}px"></canvas>'
+        '<script>function chart(a){ eval(a); return true;}</script>'
+        '</body></html>';
 
     return html;
   }
