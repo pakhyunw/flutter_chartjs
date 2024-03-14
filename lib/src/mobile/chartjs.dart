@@ -200,7 +200,7 @@ class ChartJsState extends State<ChartJs> {
         '<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0"/> '
         '</head> '
         '<body>'
-        '<canvas id="chartJs" style="width:100%;max-width:600px;height:${height}px"></canvas>'
+        '<canvas id="chartJs" style="width:100%;height:${height}px"></canvas>'
         '<script>function chart(a){ eval(a); return true;}</script>'
         '</body></html>';
 
