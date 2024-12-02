@@ -1,9 +1,8 @@
 library ChartJs_js_web;
 
-import 'package:js/js.dart';
+import 'package:flutter_js/flutter_js.dart';
 
 ///
 /// A JavaScript module for eval function.
 ///
-@JS('eval')
 external void eval(String code);
