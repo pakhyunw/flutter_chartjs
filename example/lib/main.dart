@@ -53,12 +53,15 @@ class ExampleChartState extends State<ExampleChart> {
         size: const Size(400, 400),
         data: _chartData,
         scripts: const [
-          "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.js",
+          "https://cdn.jsdelivr.net/npm/chart.js",
           'https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/2.2.1/chartjs-plugin-annotation.min.js',
           "https://hammerjs.github.io/dist/hammer.min.js",
           'https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-zoom/2.0.1/chartjs-plugin-zoom.min.js',
           "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.js",
           "https://cdnjs.cloudflare.com/ajax/libs/chartjs-adapter-moment/1.0.1/chartjs-adapter-moment.js",
+          "https://cdn.jsdelivr.net/npm/chartjs-adapter-luxon",
+          "https://cdn.jsdelivr.net/npm/luxon"
+
         ],
       ),
     );
