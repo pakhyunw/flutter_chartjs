@@ -12,6 +12,7 @@ class ChartJs extends StatefulWidget {
   const ChartJs(
       {required this.data,
       required this.size,
+        this.onReady,
       this.loader = const Center(child: CircularProgressIndicator()),
       this.scripts = const [],
       super.key});
@@ -98,6 +99,7 @@ class ChartJs extends StatefulWidget {
   ///```
   ///
   final List<String> scripts;
+  final String? onReady;
   @override
   ChartJsState createState() => ChartJsState();
 }
@@ -162,12 +164,17 @@ class ChartJsState extends State<ChartJs> {
 
   @override
   void didUpdateWidget(covariant ChartJs oldWidget) {
+    super.didUpdateWidget(oldWidget);
+
     if (oldWidget.data != widget.data ||
         oldWidget.size != widget.size ||
         oldWidget.scripts != widget.scripts) {
-      _controller.loadHtmlString(_htmlContent(widget.size.height));
+      _controller.loadHtmlString(_htmlContent(widget.size.height)).then((_) {
+        if (widget.onReady != null && widget.onReady!.trim().isNotEmpty) {
+          _controller.runJavaScript(widget.onReady!);
+        }
+      });
     }
-    super.didUpdateWidget(oldWidget);
   }
 
   @override
