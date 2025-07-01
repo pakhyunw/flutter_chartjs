@@ -9,6 +9,7 @@ class ChartJs extends StatefulWidget {
   const ChartJs(
       {required this.data,
       required this.size,
+        this.onReady,
       this.loader = const CircularProgressIndicator(),
       this.scripts = const [],
       super.key});
@@ -94,6 +95,7 @@ class ChartJs extends StatefulWidget {
   ///</head>
   ///```
   ///
+  final String onReady;
   final List<String> scripts;
   @override
   ChartJsState createState() => ChartJsState();
